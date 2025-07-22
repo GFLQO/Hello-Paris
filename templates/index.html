@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Assistant</title>
+</head>
+<body>
+    <h1>Interface Home Assistant</h1>
+    <ul>
+        {% for name, device in devices.items() %}
+        <li>
+            {{ name }} - Etat : {{ 'On' if device.value else 'Off' }}
+            <a href="{{ url_for('toggle', name=name) }}">Toggle</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
